@@ -1,9 +1,13 @@
+from random import randint
 
 class Player:
-    VERSION = "Default Python folding player"
+    VERSION = "Random snake"
 
     def betRequest(self, game_state):
-        return 0
+        if randint(0,1) < 0.5:
+            return 100
+        else:
+            return 0
 
     def showdown(self, game_state):
         pass
