@@ -1,7 +1,7 @@
 from random import randint
 
 class Player:
-    VERSION = "High card checking snake"
+    VERSION = "BET!!!"
 
     def betRequest(self, game_state):
         ONE_HIGH_CARD = game_state['players'][game_state['in_action']]['hole_cards'][0]['rank'] == 'A' or \
@@ -16,6 +16,11 @@ class Player:
 
         if ONE_HIGH_CARD or OTHER_HIGH_CARD:
             return game_state['players'][game_state['in_action']]['stack']/6
+        elif game_state['players'][game_state['in_action']]['bet'] > 0:
+            if randint(0,1) < 0.5:
+                return 30
+            else:
+                return 80
         elif randint(0,1) < 0.5:
             return 100
         else:
